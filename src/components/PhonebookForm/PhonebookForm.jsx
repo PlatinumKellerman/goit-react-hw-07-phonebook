@@ -19,8 +19,6 @@ export function PhonebookForm() {
   });
 
   const handleSubmit = (values, { resetForm }) => {
-    console.log(values);
-    console.log(addContact);
     dispatch(addContact(values));
     resetForm();
   };
