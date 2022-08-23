@@ -1,5 +1,5 @@
 import { useDispatch } from 'react-redux';
-import { addContact } from 'services/api';
+import { addContact } from '../../redux/contacts/operations';
 import { Formik, ErrorMessage } from 'formik';
 import * as yup from 'yup';
 import {
@@ -19,6 +19,8 @@ export function PhonebookForm() {
   });
 
   const handleSubmit = (values, { resetForm }) => {
+    console.log(values);
+    console.log(addContact);
     dispatch(addContact(values));
     resetForm();
   };
