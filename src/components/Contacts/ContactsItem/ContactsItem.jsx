@@ -6,7 +6,7 @@ import {
   DeleteButton,
 } from './ContactsItem.styled';
 
-export function ContactsItem({ deleteContact, name, number }) {
+export function ContactsItem({ delContact, name, number }) {
   return (
     <ListItem>
       <ItemName>
@@ -14,7 +14,7 @@ export function ContactsItem({ deleteContact, name, number }) {
         {name}:
       </ItemName>
       <ItemNumber>{number}</ItemNumber>
-      <DeleteButton onClick={deleteContact}>Delete</DeleteButton>
+      <DeleteButton onClick={delContact}>Delete</DeleteButton>
     </ListItem>
   );
 }

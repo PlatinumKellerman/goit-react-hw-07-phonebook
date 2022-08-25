@@ -5,6 +5,8 @@ import { Container } from './components/Container/index';
 import { PhonebookForm } from './components/PhonebookForm/index';
 import { Contacts } from 'components/Contacts/index';
 import { Filter } from './components/Filter/index';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export function App() {
   const dispatch = useDispatch();
@@ -20,6 +22,7 @@ export function App() {
       <Filter title="Find contacts by name:" />
       <h2>Contacts</h2>
       <Contacts title="Contacts" />
+      <ToastContainer autoClose={3000} />
     </Container>
   );
 }
