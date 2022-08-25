@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import { getContacts } from './redux/contacts/operations';
+import { getContactsAsync } from './redux/contacts/operations';
 import { Container } from './components/Container/index';
 import { PhonebookForm } from './components/PhonebookForm/index';
 import { Contacts } from 'components/Contacts/index';
@@ -12,7 +12,7 @@ export function App() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(getContacts());
+    dispatch(getContactsAsync());
   }, [dispatch]);
 
   return (

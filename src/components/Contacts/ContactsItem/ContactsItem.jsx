@@ -1,10 +1,5 @@
 import { FcPhoneAndroid } from 'react-icons/fc';
-import {
-  ListItem,
-  ItemName,
-  ItemNumber,
-  DeleteButton,
-} from './ContactsItem.styled';
+import { ListItem, ItemName, DeleteButton } from './ContactsItem.styled';
 
 export function ContactsItem({ delContact, name, number }) {
   return (
@@ -13,7 +8,7 @@ export function ContactsItem({ delContact, name, number }) {
         <FcPhoneAndroid size="20" />
         {name}:
       </ItemName>
-      <ItemNumber>{number}</ItemNumber>
+      <p>{number}</p>
       <DeleteButton onClick={delContact}>Delete</DeleteButton>
     </ListItem>
   );

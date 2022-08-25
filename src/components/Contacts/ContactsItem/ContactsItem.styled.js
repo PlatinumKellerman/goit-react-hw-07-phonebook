@@ -5,16 +5,12 @@ export const ListItem = styled.li`
   margin-bottom: 10px;
   font-weight: 500;
   align-items: flex-end;
+  justify-content: space-between;
 `;
 
 export const ItemName = styled.p`
-  margin-right: 10px;
   display: flex;
   align-items: flex-end;
-`;
-
-export const ItemNumber = styled.p`
-  margin-right: 30px;
 `;
 
 export const DeleteButton = styled.button`

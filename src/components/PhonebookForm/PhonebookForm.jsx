@@ -1,6 +1,9 @@
 import { useDispatch } from 'react-redux';
-import { addContact } from '../../redux/contacts/operations';
+import { addContactAsync } from '../../redux/contacts/operations';
 import { Formik, ErrorMessage } from 'formik';
+import { useSelector } from 'react-redux';
+import { getContacts } from '../../redux/contacts/selectors';
+import { toast } from 'react-toastify';
 import * as yup from 'yup';
 import {
   MainForm,
@@ -12,6 +15,7 @@ import {
 
 export function PhonebookForm() {
   const dispatch = useDispatch();
+  const contacts = useSelector(getContacts);
 
   const schema = yup.object().shape({
     name: yup.string().required('This field cannot be empty'),
@@ -19,7 +23,14 @@ export function PhonebookForm() {
   });
 
   const handleSubmit = (values, { resetForm }) => {
-    dispatch(addContact(values));
+    const foundContact = contacts.filter(contact => {
+      return contact.name.toLowerCase() === values.name.toLowerCase();
+    });
+    if (foundContact.length > 0) {
+      toast.error('This contact already exists');
+      return;
+    }
+    dispatch(addContactAsync(values));
     resetForm();
   };
 

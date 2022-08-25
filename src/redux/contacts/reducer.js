@@ -1,14 +1,17 @@
 import { combineReducers, createReducer } from '@reduxjs/toolkit';
 import { changeFilter } from './actions';
-import { getContacts, addContact, deleteContact } from './operations';
+import {
+  getContactsAsync,
+  addContactAsync,
+  deleteContactAsync,
+} from './operations';
 
 const items = createReducer([], {
-  [getContacts.fulfilled]: (_, { payload }) => payload,
+  [getContactsAsync.fulfilled]: (_, { payload }) => payload,
 
-  [addContact.fulfilled]: (state, { payload }) => [...state, payload],
+  [addContactAsync.fulfilled]: (_, { payload }) => payload,
 
-  [deleteContact.fulfilled]: (state, { payload }) =>
-    state.filter(({ id }) => id !== payload),
+  [deleteContactAsync.fulfilled]: (_, { payload }) => payload,
 });
 
 const filter = createReducer('', {
@@ -16,29 +19,19 @@ const filter = createReducer('', {
 });
 
 const loading = createReducer(false, {
-  [getContacts.pending]: () => true,
-  [getContacts.fulfilled]: () => false,
-  [getContacts.rejected]: () => false,
-  [addContact.pending]: () => true,
-  [addContact.fulfilled]: () => false,
-  [addContact.rejected]: () => false,
-  [deleteContact.pending]: () => true,
-  [deleteContact.fulfilled]: () => false,
-  [deleteContact.rejected]: () => false,
-});
-
-const error = createReducer(null, {
-  [getContacts.rejected]: (_, action) => action.payload,
-  [getContacts.pending]: () => null,
-  [addContact.rejected]: (_, action) => action.payload,
-  [addContact.pending]: () => null,
-  [deleteContact.rejected]: (_, action) => action.payload,
-  [deleteContact.pending]: () => null,
+  [getContactsAsync.pending]: () => true,
+  [getContactsAsync.fulfilled]: () => false,
+  [getContactsAsync.rejected]: () => false,
+  [addContactAsync.pending]: () => true,
+  [addContactAsync.fulfilled]: () => false,
+  [addContactAsync.rejected]: () => false,
+  [deleteContactAsync.pending]: () => true,
+  [deleteContactAsync.fulfilled]: () => false,
+  [deleteContactAsync.rejected]: () => false,
 });
 
 export default combineReducers({
   items,
   filter,
   loading,
-  error,
 });
