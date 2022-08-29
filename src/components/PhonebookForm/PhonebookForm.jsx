@@ -11,6 +11,7 @@ import {
   PhonebookInput,
   SubmitButton,
   ErrorText,
+  Wrapper,
 } from './PhonebookForm.styled';
 
 export function PhonebookForm() {
@@ -44,27 +45,31 @@ export function PhonebookForm() {
         <MainForm>
           <PhonebookFormLabel htmlFor="name">
             Name:
-            <PhonebookInput
-              name="name"
-              type="text"
-              title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
-            />
-            <ErrorMessage
-              name="name"
-              render={message => <ErrorText>{message}</ErrorText>}
-            />
+            <Wrapper>
+              <PhonebookInput
+                name="name"
+                type="text"
+                title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
+              />
+              <ErrorMessage
+                name="name"
+                render={message => <ErrorText>{message}</ErrorText>}
+              />
+            </Wrapper>
           </PhonebookFormLabel>
           <PhonebookFormLabel htmlFor="number">
             Number:
-            <PhonebookInput
-              name="number"
-              type="tel"
-              title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
-            />
-            <ErrorMessage
-              render={message => <ErrorText>{message}</ErrorText>}
-              name="number"
-            />
+            <Wrapper>
+              <PhonebookInput
+                name="number"
+                type="tel"
+                title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
+              />
+              <ErrorMessage
+                render={message => <ErrorText>{message}</ErrorText>}
+                name="number"
+              />
+            </Wrapper>
           </PhonebookFormLabel>
           <SubmitButton type="submit">Add contact</SubmitButton>
         </MainForm>

@@ -2,32 +2,38 @@ import styled from 'styled-components';
 import { Form, Field } from 'formik';
 
 export const MainForm = styled(Form)`
-  width: 300px;
+  width: auto;
   display: flex;
   flex-direction: column;
   padding: 10px;
   margin-bottom: 30px;
-  border: 1px solid #000;
+  background-color: lightsteelblue;
+  border-radius: 15px;
 `;
 
 export const PhonebookFormLabel = styled.label`
   display: flex;
-  flex-direction: column;
   margin-bottom: 10px;
   font-weight: 600;
+  align-items: baseline;
+  justify-content: space-around;
+  margin-bottom: 20px;
 `;
 
 export const PhonebookInput = styled(Field)`
   margin-top: 10px;
-  width: 200px;
-  border: 1px solid lightgray;
+  width: 300px;
+  border: 1px solid lightsteelblue;
   border-radius: 5px;
 `;
 
 export const SubmitButton = styled.button`
+  background-color: azure;
   width: 100px;
-  border: 1px solid #000;
+  border: 1px solid azure;
   border-radius: 5px;
+  margin-left: auto;
+  margin-right: auto;
   :hover,
   :focus,
   :active {
@@ -41,4 +47,9 @@ export const SubmitButton = styled.button`
 export const ErrorText = styled.p`
   color: red;
   font-size: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 `;
+
+export const Wrapper = styled.div``;
